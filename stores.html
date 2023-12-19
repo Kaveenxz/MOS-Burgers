@@ -39,193 +39,35 @@
               <div class="col col-7">
                     <div class="container-fluid search-bar">
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" id="search" type="search" placeholder="Search..." aria-label="Search">
+                            <input class="form-control me-2" id="search" type="search" placeholder="Search..." aria-label="Search"  oninput="filterItems()">
                         </form>
                     </div>
                     
 
                     
                     <div class="container text-center ">
-                        <div class="row ">
-                            <div class="col items stores-items">
-                                    <img src="images/b1.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
-                                    
-                            </div>
+                        <div class="row items-set-div" id="items-set-div">
                             <div class="col items">
-                                    <img src="images/b2.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
+                                <img src="images/b1.jpg" alt="" id="store-img">
+                                <div class="row store-info">
+                                    <div class="col store-lbl">
+                                        <h6>Name</h6>
+                                        <h6>Code</h6>
+                                        <h6>Price</h6>
+                                        <h6>Date</h6>
+                                        <h6>Discount</h6>
                                     </div>
-                                    
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b3.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
+                                    <div class="col store-value">
+                                        <h6 class="store-name" id="store-name">${itemName}</h6>
+                                        <h6 class="store-code" id="store-code">${itemCode}</h6>
+                                        <h6 class="store-price" id="store-price">${itemPrice}LKR</h6>
+                                        <h6 class="store-date" id="store-date">${itemDate}</h6>
+                                        <h6 class="store-discount" id="store-discount">${itemDiscount}%</h6>
                                     </div>
-                                    
-                            </div>
-                        
-                            <div class="col items">
-                                    <img src="images/b4.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b5.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b6.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
-                            </div>
-
-                            <div class="col items">
-                                    <img src="images/b7.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b8.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b9.jpg" alt="">
-                                    <div class="row store-info">
-                                        <div class="col store-lbl">
-                                            <h6>Name</h6>
-                                            <h6>Code</h6>
-                                            <h6>Price</h6>
-                                            <h6>Date</h6>
-                                            <h6>Discount</h6>
-                                        </div>
-                                        <div class="col store-value">
-                                            <h6 class="store-name">Classic Burger (Regular)</h6>
-                                            <h6 class="store-code">B1002</h6>
-                                            <h6 class="store-price">740.00LKR</h6>
-                                            <h6 class="store-date">20/12/2024</h6>
-                                            <h6 class="store-discount">0.00%</h6>
-                                        </div>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-              </div>
 
 
               <!--------------------- 3rd ---------------------------------->
@@ -261,7 +103,7 @@
 
                <div class="btns">
                     <div class="place-order add-item">
-                        <button>Add Item</button>
+                        <button onclick="addItem()">Add Item</button>
                     </div>
                     <div class="place-order edit-item">
                         <button>Edit Item</button>
@@ -278,19 +120,17 @@
           </div>
     </div>
     <script>
-         function toggleNavbar() {
-            console.log("Toggling Navbar");
+        function toggleNavbar() {
             var navbar = document.getElementById("navbar");
             navbar.classList.toggle("show");
             }
         function togglePriceView() {
             var priceView = document.getElementById('price-view');
             priceView.classList.toggle('show');
-        }
-       
+}
     </script>
-
-    <script src="js/script.js"></script>
+    <script src="js/additem.js"></script>
+    <script src="js/test.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

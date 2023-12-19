@@ -40,7 +40,7 @@
               <div class="col col-7 content">
                     <div class="container-fluid search-bar">
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" id="search" type="search" placeholder="Search..." aria-label="Search">
+                            <input class="form-control me-2" id="search" type="search" placeholder="Search..." aria-label="Search" oninput="filterItems()">
                         </form>
                     </div>
                     
@@ -49,37 +49,37 @@
                         <div class="container text-center categories-list">
                             <div class="row" id="itemContainer">
                                 <div class="col">
-                                    <a href="#" class="d-flex align-items-center ">
+                                    <a href="#" class="d-flex align-items-center" onclick="onCategoryClick('Burgers')">
                                         <img src="images/burger.png" alt="" class="me-2">
                                         <p class="mb-0">Burgers</p>
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a href="" class="d-flex align-items-center">
+                                    <a href="" class="d-flex align-items-center" onclick="onCategoryClick('Submarines')">
                                         <img src="images/hot-dog.png" alt="" class="me-2">
                                         <p class="mb-0">Submarines</p>
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a href="" class="d-flex align-items-center">
+                                    <a href="" class="d-flex align-items-center" onclick="onCategoryClick('Fries')">
                                         <img src="images/french-fries(1).png" alt="" class="me-2">
                                         <p class="mb-0">Fries</p>
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a href="" class="d-flex align-items-center">
+                                    <a href="" class="d-flex align-items-center" onclick="onCategoryClick('Chicken')">
                                         <img src="images/chicken-leg.png" alt="" class="me-2">
                                         <p class="mb-0">Chicken</p>
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a href="" class="d-flex align-items-center">
+                                    <a href="" class="d-flex align-items-center" onclick="onCategoryClick('Pasta')">
                                         <img src="images/spaghetti.png" alt="" class="me-2">
                                         <p class="mb-0">Pasta</p>
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a href="" class="d-flex align-items-center">
+                                    <a href="" class="d-flex align-items-center" onclick="onCategoryClick('Beverages')">
                                         <img src="images/cocktail.png" alt="" class="me-2">
                                         <p class="mb-0">Beverages</p>
                                     </a>
@@ -89,52 +89,52 @@
                         
                     </div>
 
-                    <div class="container text-center ">
+                    <!-- ... (your existing HTML code) ... -->
+
+                    <div class="container items-div" id="itemContainer">
                         <div class="row">
                             <div class="col items">
-                                    <img src="images/b1.jpg" alt="">
-                                    <h6 class="name">Classic Burger (Large)</h6>
-                                    <p class="price">750.00LKR</p>
-                                    <div class="count"><span>-</span> 0 <span>+</span></div>
+                                <img src="images/b1.jpg" alt="">
+                                <h6 class="name">Classic Burger (Large)</h6>
+                                <p class="price">750.00LKR</p>
+                                <h6 class="discount">15% Discount</h6>
+                                <div class="count">
+                                    <span onclick="decrementCount(this)">-</span>
+                                    <span class="quantity" style="background-color: transparent;">0</span>
+                                    <span onclick="incrementCount(this)">+</span>
+                                </div>
+                                <button onclick="addItemToSelected(this.parentElement)" class="add-cart">Add to Cart</button> <!-- Added a button to add item to cart -->
                             </div>
                             <div class="col items">
-                                    <img src="images/b2.jpg" alt="">
-                                    <h6 class="name">Classic Burger (Regular)</h6>
-                                    <p class="price">1500.00LKR</p>
-                                    <div class="count"><span>-</span>0 <span>+</span></div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b3.jpg" alt="">
-                                    <h6 class="name">Turkey Burger</h6>
-                                    <p class="price">1600.00LKR</p>
-                                    <div class="count"><span>-</span>0 <span>+</span></div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b4.jpg" alt="">
-                                    <h6 class="name">Chicken Burger (Large)</h6>
-                                    <p class="price">1400.00LKR</p>
-                                    <div class="count"><span>-</span>0 <span>+</span></div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b5.jpg" alt="">
-                                    <h6 class="name">Chicken Burger (Regular)</h6>
-                                    <p class="price">800.00LKR</p>
-                                    <div class="count"><span>-</span>0 <span>+</span></div>
-                            </div>
-                            <div class="col items">
-                                    <img src="images/b6.jpg" alt="">
-                                    <h6 class="name">Cheese Burger (Large)</h6>
-                                    <p class="price">1000.00LKR</p>
-                                    <div class="count"><span>-</span>0 <span>+</span></div>
-                            </div>
-                            <div class="col items">
-                                <img src="images/b6.jpg" alt="">
-                                <h6 class="name">Cheese Burger (Large)</h6>
+                                <img src="images/b2.jpg" alt="">
+                                <h6 class="name">Classic Burger (Regular)</h6>
                                 <p class="price">1000.00LKR</p>
-                                <div class="count"><span>-</span>0 <span>+</span></div>
-                        </div>
+                                <h6 class="discount">20% Discount</h6>
+                                <div class="count">
+                                    <span onclick="decrementCount(this)">-</span>
+                                    <span class="quantity" style="background-color: transparent;">0</span>
+                                    <span onclick="incrementCount(this)">+</span>
+                                </div>
+                                <button onclick="addItemToSelected(this.parentElement)">Add to Cart</button> <!-- Added a button to add item to cart -->
+                            </div>
+                            <div class="col items">
+                                <img src="images/b1.jpg" alt="">
+                                <h6 class="name">Classic Burger (Large)</h6>
+                                <p class="price">750.00LKR</p>
+                                <h6 class="discount">15% Discount</h6>
+                                <div class="count">
+                                    <span onclick="decrementCount(this)">-</span>
+                                    <span class="quantity" style="background-color: transparent;">0</span>
+                                    <span onclick="incrementCount(this)">+</span>
+                                </div>
+                                <button onclick="addItemToSelected(this.parentElement)">Add to Cart</button> <!-- Added a button to add item to cart -->
+                            </div>
+
                         </div>
                     </div>
+
+<!-- ... (your existing HTML code) ... -->
+
               </div>
 
 
@@ -158,45 +158,19 @@
 
                 <div class="scrollable-container">
                     <div class="item-list">
-                        <div class="item">
-                            <img src="images/b3.jpg" alt="">
-                            <div class="item-info">
-                                <h6>Turkey Burger</h6>
-                                <h6>1600.00</h6>
-                                <h6>2x</h6>
-                                <h6>3200.00LKR</h6>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="images/b6.jpg" alt="">
-                            <div class="item-info">
-                                <h6>Cheese Burger (Large)</h6>
-                                <h6>1600.00</h6>
-                                <h6>2x</h6>
-                                <h6>3200.00LKR</h6>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="images/b4.jpg" alt="">
-                           <div class="item-info">
-                                <h6>Chicken Burger (Large)</h6>
-                                <h6>1600.00</h6>
-                                <h6>2x</h6>
-                                <h6>3200.00LKR</h6>
-                           </div>
-                        </div>
+                        
                     </div>
                 </div>
 
                 <div class="payment">
                     <h5>Payment Summary</h5>
-                    <h6><span>Sub total</span><span>8400.00</span></h6>
+                    <h6><span>Sub total</span><span>0</span></h6>
                     <h6><span>Discount</span><span>0.00</span></h6>
-                    <h6><span>Total Payment</span><span>8400.00LKR</span></h6>
+                    <h6><span>Total Payment</span><span></span></h6>
                 </div>
 
                 <div class="place-order place-order-w">
-                    <button class="place-order-w">Place Order</button>
+                    <button class="place-order-w" onclick="placeOrder()">Place Order</button>
                 </div>
               </div>
 
@@ -224,6 +198,7 @@
         navbar.classList.toggle("show");
         }
     </script>
+    <script src="js/placeOrder.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
