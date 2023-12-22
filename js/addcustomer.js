@@ -1,44 +1,65 @@
 var customerArray = [];
 var newCustomer = {}
+
 function addCustomer() {
     var custName = document.getElementById('cust-name').value;
     var custCode = document.getElementById('cust-code').value;
     var custNumber = document.getElementById('cust-number').value;
-   
- 
-            newCustomer = {
-                name: custCode,
-                code: custName,
-                price: custNumber,
-            };
-            customerArray.push(newCustomer)
 
-            var newItemDiv = document.createElement('div');
-            newItemDiv.className = 'col items customer';
+    newCustomer = {
+        name: custCode,
+        code: custName,
+        price: custNumber,
+    };
+    customerArray.push(newCustomer)
 
-            newItemDiv.innerHTML = `
-            <div class="row customer-info" id="customer-set-div">
-                    <img src="images/user (1).png" alt="">
-                    
-                    <div class="col customer-value">
-                        <h6 class="store-name">C001</h6>
-                        <h6 class="store-code">Kumara</h6>
-                        <h6>0783872364</h6>
-                    </div>
-            </div>`;
+    var customerSetDiv = document.getElementById('customer-set-div');
+    
+    var newCustomerDiv = document.createElement('div');
+    newCustomerDiv.className = 'col items customer';
 
-            document.getElementById('customer-set-div').appendChild(newItemDiv);
-            console.log(customerArray)
-};
+    newCustomerDiv.innerHTML = `
+        <div class="row customer-info">
+            <img src="images/user (1).png" alt="">
+            
+            <div class="col customer-value">
+                <h6 class="store-name">${newCustomer.code}</h6>
+                <h6 class="store-code">${newCustomer.name}</h6>
+                <h6>${newCustomer.price}</h6>
+            </div>
+        </div>
+        <button class="edit-cust add-cart" onclick="editCustomer(${customerArray.indexOf(newCustomer)})">Edit Customer</button>
+        <button class="delete-cust add-cart" onclick="deleteCustomer(${customerArray.indexOf(newCustomer)})">Delete Customer</button>
+    `;
 
-function filterCustomers() {
-    var searchInput = document.getElementById("search").value.toLowerCase();
-    var customers = document.querySelectorAll('.customers');
+    customerSetDiv.appendChild(newCustomerDiv);
+    clearInputFields();
+}
 
-    customers.forEach(function (customer) {
-        var customerName = customer.querySelector('.customer-info').innerText.toLowerCase();
-        var shouldShow = customerName.includes(searchInput);
+function deleteCustomer(index) {
+    customerArray.splice(index, 1);
 
-        customer.style.display = shouldShow ? 'block' : 'none';
-    });
+    var customerSetDiv = document.getElementById('customer-set-div');
+    var customerDivToRemove = customerSetDiv.querySelector('.items.customer');
+
+    if (customerDivToRemove) {
+        customerSetDiv.removeChild(customerDivToRemove);
+    }
+}
+
+
+function clearInputFields() {
+    document.getElementById('cust-name').value = '';
+    document.getElementById('cust-code').value = '';
+    document.getElementById('cust-number').value = '';
+}
+
+function editCustomer(index) {
+    var customerToEdit = customerArray[index];
+
+    document.getElementById('cust-name').value = customerToEdit.name;
+    document.getElementById('cust-code').value = customerToEdit.code;
+    document.getElementById('cust-number').value = customerToEdit.price;
+
+    document.getElementById('customer-view').scrollIntoView();
 }

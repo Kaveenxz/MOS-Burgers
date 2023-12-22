@@ -95,13 +95,10 @@ function placeOrder() {
     var orderDetails = {
         customerName: document.getElementById('name').value,
         customerTeleNumber: document.getElementById('password').value,
-        items: selectedItems,
-        subTotal: parseFloat(document.getElementById('sub-total').textContent),
-        discount: parseFloat(document.getElementById('discount').textContent),
-        totalPayment: parseFloat(document.getElementById('total-payment').textContent)
+        totalPayment: document.getElementById('total-payment').value
     };
 
-    console.log('Placing Order:', orderDetails);
+    console.log(orderDetails);
 
     selectedItems = [];
     updateSelectedItemList();

@@ -1,4 +1,4 @@
-var itemArray = [];
+var itemArray= []
 function addItem() {
     var itemName = document.getElementById('item-name').value;
     var itemCode = document.getElementById('item-code').value;
@@ -14,18 +14,21 @@ function addItem() {
         reader.onload = function (e) {
             var itemImgSrc = e.target.result;
 
-            newItem = {
+            var newItem = {
                 name: itemName,
                 code: itemCode,
                 price: itemPrice,
                 date: itemDate,
                 discount: itemDiscount,
-                imgSrc: itemImgSrc
+                imgSrc: itemImgSrc,
+                index: itemArray.length
             };
-            itemArray.push(newItem)
+
+            itemArray.push(newItem);
 
             var newItemDiv = document.createElement('div');
             newItemDiv.className = 'col items';
+            newItemDiv.dataset.index = newItem.index; 
 
             newItemDiv.innerHTML = `
                 <img src="${itemImgSrc}" alt="" id="store-img">
@@ -44,10 +47,14 @@ function addItem() {
                         <h6 class="store-date" id="store-date">${itemDate}</h6>
                         <h6 class="store-discount" id="store-discount">${itemDiscount}%</h6>
                     </div>
-                </div>`;
+                </div>
+                <button class="edit-item add-cart" onclick="editItem(${newItem.index})">Edit Item</button>
+                <button class="delete-item add-cart" onclick="deleteItem(${newItem.index})">Delete Item</button>
+            `;
 
             document.getElementById('items-set-div').appendChild(newItemDiv);
-            console.log(itemArray)
+            console.log(itemArray);
+            clearInputFields();
         };
 
         reader.readAsDataURL(itemImgFile);
@@ -56,41 +63,48 @@ function addItem() {
     }
 }
 
-function filterItems() {
-    var searchInput = document.getElementById("search").value.toLowerCase();
-    var items = document.querySelectorAll('.items');
+function deleteItem(index) {
+    itemArray.splice(index, 1);
 
-    items.forEach(function (item) {
-        var itemName = item.querySelector('.store-name').innerText.toLowerCase();
-        var shouldShow = itemName.includes(searchInput);
+    var itemsSetDiv = document.getElementById('items-set-div');
+    var itemDivToRemove = itemsSetDiv.querySelector(`[data-index='${index}']`);
 
-        item.style.display = shouldShow ? 'block' : 'none';
-    });
+    if (itemDivToRemove) {
+        itemsSetDiv.removeChild(itemDivToRemove);
+    }
 }
-function onItemClick(item) {
-    // Get the data from the clicked item using data attributes
-    var itemName = item.dataset.name;
-    var itemCode = item.dataset.code;
-    var itemPrice = item.dataset.price;
-    var itemDate = item.dataset.date;
-    var itemDiscount = item.dataset.discount;
-    var itemImgSrc = item.dataset.img;
+function clearInputFields() {
+    document.getElementById('item-name').value = '';
+    document.getElementById('item-code').value = '';
+    document.getElementById('item-price').value = '';
+    document.getElementById('item-date').value = '';
+    document.getElementById('item-discount').value = '';
+    document.getElementById('item-image').value = '';
+}
+function editItem(index) {
+    var itemToEdit = itemArray[index];
 
-    // Update the price view input fields
-    document.getElementById('item-name').value = itemName;
-    document.getElementById('item-code').value = itemCode;
-    document.getElementById('item-price').value = parseFloat(itemPrice);
-    document.getElementById('item-date').value = itemDate;
-    document.getElementById('item-discount').value = parseInt(itemDiscount);
+    document.getElementById('item-name').value = itemToEdit.name;
+    document.getElementById('item-code').value = itemToEdit.code;
+    document.getElementById('item-price').value = itemToEdit.price;
+    document.getElementById('item-date').value = itemToEdit.date;
+    document.getElementById('item-discount').value = itemToEdit.discount;
 
-    // You can also update the image source in the price view
-    document.getElementById('item-img').src = itemImgSrc;
+     document.getElementById('item-image').files[0] = itemToEdit.imgSrc;
+
+    document.getElementById('price-view').scrollIntoView();
 }
 
-// Add click event listeners to each item
-var items = document.querySelectorAll('.col.items');
-items.forEach(function(item) {
-    item.addEventListener('click', function() {
-        onItemClick(item);
-    });
-});
+function handleEditButton() {
+    itemArray[index] = {
+        name: document.getElementById('item-name').value,
+        code: document.getElementById('item-code').value,
+        price: document.getElementById('item-price').value,
+        date: document.getElementById('item-date').value,
+        discount: document.getElementById('item-discount').value,
+       
+    };
+
+   clearInputFields();
+   
+}
