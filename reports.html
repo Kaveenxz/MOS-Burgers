@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="styling/styleMain.css">
     <title>Place Order</title>
+
 </head>
 <body>
     <div class="main-container">
@@ -14,54 +15,116 @@
             <div class="menu-icon nav-icon" onclick="toggleNavbar()">
                 <box-icon name='menu'></box-icon>
                 <span style="padding: 5px 8px; background: #fff; border-radius: 50%;" class="nav-icon">&#9776;</span>
-              </div>
-            <div class="row ">
-
-              <div class="col nav-bar col-2" id="navbar">
-                <h3>MOS Burgers</h3>
-                <div class="menu">
-                    <ul>
-                        <a href="index.html"> <li><img src="images/food-tray (1).png" alt="">Place Order</li></a>
-                        <a href="stores.html"> <li><img src="images/delivery-man.png" alt="">Stores</li></a>
-                        <a href="reports.html"> <li><img src="images\invoice (1).png" alt="">Reports</li></a>
-                        <a href="customers.html"> <li><img src="images\user (1).png" alt="">Customers</li></a>
-                        <a href="orders.html"> <li><img src="images\checkout.png" alt="">Orders</li></a>
-                    </ul>
-                </div>
-                <div class="logout">
-                    <h5><img src="images/exit.png" alt=""><a href="index.html">Logout</a></h5>
-                </div>
-              </div>
-
-             <!--------------------- 2nd ---------------------------------->
-
-              <div class="col col-7 reports-section">
-                    <div class="row report-row ">
-                        <div class="col report-item">
-                            <h4>Monthly Report</h4>
-                        </div>
-                        <div class="col report-item">
-                            <h4>Heighest orders</h4>
-                        </div>
-                        <div class="col report-item">
-                            <h4>Annual sales</h4>
-                        </div>
-                        <div class="col report-item">
-                            <h4>Food item count</h4>
-                        </div>
-                    </div>
-              </div>
-
-
-              <!--------------------- 3rd ---------------------------------->
-
-              <div class="col price-view order-details">
-                <img src="images/coverOder.jpg" class="order-cover-img">
-              </div>
-
-              
             </div>
-          </div>
+            <div class="row">
+                <div class="col nav-bar col-2" id="navbar">
+                    <h3>MOS Burgers</h3>
+                    <div class="menu">
+                        <ul>
+                            <a href="index.html"> <li><img src="images/food-tray (1).png" alt="">Place Order</li></a>
+                            <a href="stores.html"> <li><img src="images/delivery-man.png" alt="">Stores</li></a>
+                            <a href="reports.html"> <li><img src="images\invoice (1).png" alt="">Reports</li></a>
+                            <a href="customers.html"> <li><img src="images\user (1).png" alt="">Customers</li></a>
+                            <a href="orders.html"> <li><img src="images\checkout.png" alt="">Orders</li></a>
+                        </ul>
+                    </div>
+                    <div class="logout">
+                        <h5><img src="images/exit.png" alt=""><a href="index.html">Logout</a></h5>
+                    </div>
+                </div>
+
+                <!-- 2nd Column: Reports Section -->
+                <div class="col col-7 reports-section">
+                    <!-- Monthly Report -->
+                    <div class="report-container">
+                        <h4>Monthly Report</h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Sales</th>
+                                    <th>Profit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>January</td>
+                                    <td>36000.00LKR</td>
+                                    <td>20000.00LKR</td>
+                                </tr>
+                                <tr>
+                                    <td>February</td>
+                                    <td>40000.00LKR</td>
+                                    <td>25000.00LKR</td>
+                                </tr>
+                                <tr>
+                                    <td>March</td>
+                                    <td>36000.00LKR</td>
+                                    <td>20000.00LKR</td>
+                                </tr>
+                                <tr>
+                                    <td>April</td>
+                                    <td>40000.00LKR</td>
+                                    <td>25000.00LKR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="report-container">
+                        <h4>Highest Orders</h4>
+                        <ul>
+                            <li>Order #2 - 3500.00LKR</li>
+                            <li>Order #4 - 3200.00LKR</li>
+                            <li>Order #7 - 2800.00LKR</li>
+                        </ul>
+                    </div>
+
+                    <!-- Annual Sales -->
+                    <div class="report-container">
+                        <h4>Annual Sales</h4>
+                        <p>Total Sales for the Year: 500000.00LKR</p>
+                        <p>Total Profit for the Year: 3000000.00LKR</p>
+                    </div>
+
+                    <!-- Food Item Count -->
+                    <div class="report-container table-container">
+                        <h4>Food Item Count</h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Food Item</th>
+                                    <th>Quantity Sold</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Burger</td>
+                                    <td>500</td>
+                                </tr>
+                                <tr>
+                                    <td>Fries</td>
+                                    <td>700</td>
+                                </tr>
+                                <tr>
+                                    <td>chicken</td>
+                                    <td>450</td>
+                                </tr>
+                                <tr>
+                                    <td>Beveragers</td>
+                                    <td>560</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 3rd Column: Order Details -->
+                <div class="col price-view order-details">
+                    <img src="images/coverOder.jpg" class="order-cover-img">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

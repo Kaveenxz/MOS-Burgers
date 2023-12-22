@@ -6,6 +6,11 @@ function addCustomer() {
     var custCode = document.getElementById('cust-code').value;
     var custNumber = document.getElementById('cust-number').value;
 
+    if (custName.trim() === '' || custCode.trim() === '' || custNumber.trim() === '') {
+        alert('Please fill in all required fields.');
+        return false; // Prevent the form from being submitted
+    }
+
     newCustomer = {
         name: custCode,
         code: custName,
@@ -34,6 +39,7 @@ function addCustomer() {
 
     customerSetDiv.appendChild(newCustomerDiv);
     clearInputFields();
+    
 }
 
 function deleteCustomer(index) {
